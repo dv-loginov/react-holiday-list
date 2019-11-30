@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 import Layout from "./hoc/Layout/Layout";
 import Header from "./containers/Header/Header";
 import Content from "./containers/Content/Content";
@@ -7,22 +7,37 @@ import Info from "./containers/Info/Info";
 import SelectDate from "./components/SelectDate/SelectDate";
 import ListCountries from "./components/ListСountries/ListСountries";
 
-function App() {
-  return (
-   <Layout>
-     <Header
-        header='Празничные дни со всего мира'
-     />
-       <Content>
-           <Sidebar>
-              <SelectDate/>
-              <ListCountries/>
-           </Sidebar>
-           <Info>Info</Info>
-       </Content>
+class App extends Component{
+    state={
+        year: '',
+        countryCode: ''
+    };
 
-   </Layout>
-  );
+    onYarnHandler=(date)=>{
+      console.log(this.state);
+      console.log(date);
+      this.setState({year:date});
+    };
+
+    render() {
+        console.log(this.state);
+        return(
+            <Layout>
+                <Header
+                    header='Празничные дни со всего мира'
+                />
+                <Content>
+                    <Sidebar>
+                        <SelectDate
+                            onChange={(date)=>this.onYarnHandler(date)}
+                        />
+                        <ListCountries/>
+                    </Sidebar>
+                    <Info>Info</Info>
+                </Content>
+            </Layout>
+        );
+    }
 }
 
 export default App;
