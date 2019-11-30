@@ -1,25 +1,27 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Layout from "./hoc/Layout/Layout";
+import Header from "./containers/Header/Header";
+import Content from "./containers/Content/Content";
+import Sidebar from "./containers/Sidebar/Sidebar";
+import Info from "./containers/Info/Info";
+import SelectDate from "./components/SelectDate/SelectDate";
+import ListCountries from "./components/ListСountries/ListСountries";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+   <Layout>
+     <Header
+        header='Празничные дни со всего мира'
+     />
+       <Content>
+           <Sidebar>
+              <SelectDate/>
+              <ListCountries/>
+           </Sidebar>
+           <Info>Info</Info>
+       </Content>
+
+   </Layout>
   );
 }
 
