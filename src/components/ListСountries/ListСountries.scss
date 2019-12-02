@@ -1,8 +1,15 @@
 .ListCountries{
   text-align: center;
   padding: 10px;
+  overflow: auto;
+  border: 1px solid black;
+  border-radius: 15px;
+  background-color: antiquewhite;
+  margin-top: 20px;
   span{
     padding-bottom: 15px;
+    color: black;
     display: block;
+    font-weight: bold;
   }
 }

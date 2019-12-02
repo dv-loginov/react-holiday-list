@@ -1,3 +1,15 @@
 .InfoRequest{
+  width: 100%;
+  display: flex;
+  justify-content: center;
 
+  span{
+    color:black;
+    font-weight: bold;
+    font-size: 1.3em;
+    background-color: antiquewhite;
+    border-radius: 15px;
+    padding: 20px;
+    margin: 0 40px;
+  }
 }

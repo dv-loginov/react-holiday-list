@@ -1,4 +1,8 @@
-.Info{
-  width: 100vw;
-  background-color: greenyellow;
+.ListHolidays{
+  margin-top: 20px;
+  ul{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 }
