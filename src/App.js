@@ -3,24 +3,34 @@ import Layout from "./hoc/Layout/Layout";
 import Header from "./containers/Header/Header";
 import Content from "./containers/Content/Content";
 import Sidebar from "./containers/Sidebar/Sidebar";
-import Info from "./containers/Info/Info";
+import ListHolidays from "./components/ListHolidays/ListHolidays";
 import SelectDate from "./components/SelectDate/SelectDate";
 import ListCountries from "./components/ListСountries/ListСountries";
-
+import InfoRequest from "./components/InfoRequest/InfoRequest"
+import Info from "./containers/Info/Info"
 class App extends Component{
     state={
-        year: '',
-        countryCode: ''
+        year: false,
+        countryCode: false,
     };
 
-    onYarnHandler=(date)=>{
-      console.log(this.state);
-      console.log(date);
-      this.setState({year:date});
+    isValid(){
+        return !!(this.state.year && this.state.countryCode);
+    };
+
+    onChangeYearHandler=(date)=>{
+        this.isValid()
+          ?this.setState({year:date, countryCode: false})
+          :this.setState({year:date});
+    };
+
+    onChangeCountryHandler=(key)=>{
+        this.isValid()
+            ?this.setState({countryCode:key, year: false})
+            :this.setState({countryCode:key});
     };
 
     render() {
-        console.log(this.state);
         return(
             <Layout>
                 <Header
@@ -29,11 +39,25 @@ class App extends Component{
                 <Content>
                     <Sidebar>
                         <SelectDate
-                            onChange={(date)=>this.onYarnHandler(date)}
+                            onChange={(date)=>this.onChangeYearHandler(date)}
                         />
-                        <ListCountries/>
+                        <ListCountries
+                            onClick={(key)=>this.onChangeCountryHandler(key)}
+                        />
                     </Sidebar>
-                    <Info>Info</Info>
+                    <Info>
+                        <InfoRequest
+                            year={this.state.year}
+                            countryCode={this.state.countryCode}
+                        />
+                        {this.isValid()
+                            ? <ListHolidays
+                                year={this.state.year}
+                                countryCode={this.state.countryCode}
+                            />
+                            : null
+                        }
+                    </Info>
                 </Content>
             </Layout>
         );
