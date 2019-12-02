@@ -4,10 +4,10 @@ import './ItemHoliday.scss'
 const ItemHolioday=(props)=>{
     return(
         <li className='ItemHoliday'>
-            <div>{props.date}</div>
-            <div>{props.name}</div>
-            <div>{props.localName}</div>
-            <div>{props.launchYear}</div>
+             <span>Дата: {props.date} {props.launchYear?`   отмечается с ${props.launchYear}`:null }</span>
+             {/*{props.launchYear?<span>Отмечается с {props.launchYear}</span>:null}*/}
+            <span>Международное название: {props.name}</span>
+             <span>Туземное название: {props.localName}</span>
         </li>
     )
 };

@@ -12,6 +12,7 @@ class App extends Component{
     state={
         year: false,
         countryCode: false,
+        countryName: false
     };
 
     isValid(){
@@ -20,14 +21,14 @@ class App extends Component{
 
     onChangeYearHandler=(date)=>{
         this.isValid()
-          ?this.setState({year:date, countryCode: false})
+          ?this.setState({year:date, countryCode: false,countryName:false})
           :this.setState({year:date});
     };
 
-    onChangeCountryHandler=(key)=>{
+    onChangeCountryHandler=(key,name)=>{
         this.isValid()
-            ?this.setState({countryCode:key, year: false})
-            :this.setState({countryCode:key});
+            ?this.setState({countryCode:key, year: false,countryName:name})
+            :this.setState({countryCode:key,countryName:name});
     };
 
     render() {
@@ -42,13 +43,13 @@ class App extends Component{
                             onChange={(date)=>this.onChangeYearHandler(date)}
                         />
                         <ListCountries
-                            onClick={(key)=>this.onChangeCountryHandler(key)}
+                            onClick={(key,name)=>this.onChangeCountryHandler(key,name)}
                         />
                     </Sidebar>
                     <Info>
                         <InfoRequest
                             year={this.state.year}
-                            countryCode={this.state.countryCode}
+                            countryCode={this.state.countryName}
                         />
                         {this.isValid()
                             ? <ListHolidays

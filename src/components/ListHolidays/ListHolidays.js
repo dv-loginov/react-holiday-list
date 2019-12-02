@@ -36,7 +36,6 @@ class ListHolidays extends Component{
     }
 
     render() {
-        console.log(this.state);
         return (
             <div className='ListHolidays'>
                 <ul>

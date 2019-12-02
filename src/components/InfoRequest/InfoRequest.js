@@ -4,8 +4,8 @@ import "./InfoRequest.scss"
 const InfoRequest=(props)=>{
     return(
         <div className='InfoRequest'>
-            <span>{props.year}</span>
-            <span>{props.countryCode}</span>
+                <span>Год: {props.year}</span>
+                <span>Страна: {props.countryCode}</span>
         </div>
     )
 };

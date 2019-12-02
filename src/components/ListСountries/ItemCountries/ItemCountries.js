@@ -4,7 +4,7 @@ import './ItemCountries.scss'
 const ItemCountries=(props)=>{
     return(<li
         className='ItemCountries'
-        onClick={()=>props.onClick(props.id)}
+        onClick={()=>props.onClick(props.id, props.value)}
     >
         { props.value }
     </li>)
