@@ -1,8 +1,9 @@
 import React,{Component} from 'react'
-import './InfoHolidays.scss'
+import './ListHolidays.scss'
 import axios from 'axios'
+import ItemHoliday from './ItemHoliday/ItemHoliday'
 
-class InfoHolidays extends Component{
+class ListHolidays extends Component{
 
     state={
         holidays:[]
@@ -20,19 +21,30 @@ class InfoHolidays extends Component{
         }
     }
 
-    render() {
-        console.log(this.state);
+    renderHolidays() {
         return this.state.holidays.map(holiday => {
             return (
-                <div>
-                    <span>{holiday.date}</span>
-                    <span>{holiday.name}</span>
-                    <span>{holiday.localName}</span>
-                </div>
+                <ItemHoliday
+                   key={Math.random()}
+                   date={holiday.date}
+                   name={holiday.name}
+                   localName={holiday.localName}
+                   launchYear={holiday.launchYear}
+                />
             )
         })
+    }
 
+    render() {
+        console.log(this.state);
+        return (
+            <div className='ListHolidays'>
+                <ul>
+                    { this.renderHolidays() }
+                </ul>
+            </div>
+        )
     }
 }
 
-export default InfoHolidays
+export default ListHolidays
