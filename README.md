@@ -1,4 +1,5 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+DEMO http://dv-loginov.ru/public/prj/react/react-holiday-list/
 
 ## Available Scripts
 
