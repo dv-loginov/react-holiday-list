@@ -3,7 +3,7 @@ http://dv-loginov.ru/public/prj/react/react-holiday-list/
 
 ## DEMO
 
-http://dv-loginov.ru/public/prj/react/react-holiday-list/
+http://dv-loginov.ru/prj/react/react-holiday-list/
 
 ## Available Scripts
 
